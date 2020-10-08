@@ -51,6 +51,10 @@ tortugas_nombres=['roja','amarilla','verde','azul','morada'] #nombres de las tor
 #turtle.setup()
 wn=turtle.Screen()
 wn.title("Carrera de tortugas")
+width, height= 800, 800
+wn.screensize(width, height)
+
+
 t=turtle.Turtle() #t dibuja nuestro entorno
 t.hideturtle()
 
@@ -182,4 +186,3 @@ for angulo_inc in angulos_normal:
     print('\nPara la tortuga {}: n1 * sen(angulo_inc) = {}  y  n2 * sen(angulo_ref) = {}'.format(nombre,round(n*sin(radians(angulo_inc)),2),round(sin(radians(angulo_ref)),2)))
 
 quit() #turtle no parece cerrarse correctamente, por lo que debemos cerra python para asegurar posteriores ejecuciones exitosas
-
