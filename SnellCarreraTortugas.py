@@ -26,10 +26,7 @@ posicion_y_podio=320 #coordenada y del podio
 #angulos (respecto al eje x [complementarios al angulo respecto a la normal]) de partida y colores de las tortugas a,b,c,d,e:
 angulos=[-45,-55,-65,-75,-85] #en orden inverso por usar la función pop()
 colores=['purple','#7FFFD4','green','#FFFF00','red'] #en orden inverso por usar la función pop()
-#hacemos una copia de los ángulos de cada tortuga (esta vez sin invertir y RESPECTO A LA NORMAL) para los cálculos post-animación dirigidos a comprobar la ley de snell
-angulos_normal=[90-abs(angulo) for angulo in angulos] #pasamos a angulos respecto a la normal
-angulos_normal.reverse() #los ordenamos segun posicion de las tortugas
-tortugas_nombres=['roja','amarilla','verde','azul','morada'] #nombres de las tortugas
+
 
 
 
@@ -177,7 +174,16 @@ info = messagebox.showinfo('Carrera de tortugas', '¡Carrera finalizada!', paren
 
 turtle.bye()
 
+
+
+
 #COMPROBAMOS QUE GANA LA QUE MÁS SE ACERCA A LA LEY DE SNELL
+
+#hacemos una copia de los ángulos de cada tortuga (esta vez sin invertir y RESPECTO A LA NORMAL) para los cálculos post-animación dirigidos a comprobar la ley de snell
+angulos_normal=[90-abs(angulo) for angulo in angulos] #pasamos a angulos respecto a la normal
+angulos_normal.reverse() #los ordenamos segun posicion de las tortugas
+tortugas_nombres=['roja','amarilla','verde','azul','morada'] #nombres de las tortugas
+
 for angulo_inc in angulos_normal:
     X1=Y1*tan(radians(angulo_inc)) #distancia recorrida en x en el medio 1
     angulo_ref=round(degrees(arctan((X-X1)/Y2)),1) #redondeamos a los decimales
